@@ -1,4 +1,4 @@
-## Jogo da Velha
+## Genesis
 
 ### Descrição do projeto
 Neste projeto, desenvolvemos juntos um jogo Genesis utilizando HTML, CSS e Javascript.
