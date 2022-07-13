@@ -304,4 +304,24 @@ function start() {
         }	
     } // Fim da dunção reposicioInimigo2()	
 
+    //Reposiciona Amigo
+	
+	function reposicionaAmigo() {
+	
+        var tempoAmigo=window.setInterval(reposiciona6, 6000);
+        
+        function reposiciona6() {
+            window.clearInterval(tempoAmigo);
+            tempoAmigo=null;
+                
+            if (fimdejogo==false) {
+                
+                $("#fundoGame").append("<div id='amigo' class='anima3'></div>");
+                
+            }
+            
+        }
+        
+    } // Fim da função reposicionaAmigo()
+
 } // Fim da função start()
