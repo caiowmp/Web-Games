@@ -60,7 +60,12 @@ function start() {
             var topo = parseInt($("#jogador").css("top"));
             //joga pra cima
             $("#jogador").css("top",topo-10);
-            
+
+            //põe um teto para o helicóptero
+            if (topo<=0) {
+		
+                $("#jogador").css("top",topo=0);
+            }
         }
             
         //caso S seja pressionado
@@ -69,6 +74,12 @@ function start() {
             var topo = parseInt($("#jogador").css("top"));
             //joga pra baixo
             $("#jogador").css("top",topo+10);	
+
+            //o helicóptero só desce até o chão
+            if (topo>=434) {	
+                $("#jogador").css("top",topo=434);
+                    
+            }
         }
             
         //caso D seja pressionado
