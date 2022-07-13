@@ -30,15 +30,15 @@ body {
 }
 
 #inicio {
-	width:600px;
-	height:300px;
+	font-family:Titulo;
+	width:700px;
+	height:350px;
 	background-color:#FFF;
  	margin-left:auto;
     margin-right:auto;
  	margin-top:100px;
 	text-align:center;
 	padding:10px;
-
 }
 
 #menu {
@@ -52,7 +52,6 @@ body {
 	left:8px;
 	top:179px;
 	background-image:url(imgs/apache.png);
-
 }
 
 #inimigo1 {
@@ -62,7 +61,6 @@ body {
 	left: 689px;
 	top: 253px;
 	background-image:url(imgs/inimigo1.png);
-	
 }
 
 #inimigo2 {
@@ -243,10 +241,10 @@ h3 {
 	font-family:Titulo;
 	font-size:20px;
 	color:#603A03;
-
 }
 
 #fim {
+	font-family:Titulo;
 	width:350px;
 	height:200px;
 	background-color:#FFF;
@@ -255,5 +253,4 @@ h3 {
  	margin-top:100px;
 	text-align:center;
 	padding:10px;
-
 }
