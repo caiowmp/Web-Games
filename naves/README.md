@@ -14,4 +14,4 @@ O jogador começa com 3 energias e, a cada colisão que ele tiver com os inimigo
 ### Para rodar o projeto
 Para executar o projeto, basta apenas abrir o arquivo index.html em um navegador de preferência.
 
-![example](example.png)
+![example](example.jpeg)
