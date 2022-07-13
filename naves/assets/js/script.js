@@ -15,6 +15,7 @@ function start() {
     var velocidade = 5;
     var posicaoY = parseInt(Math.random() * 334);
     var podeAtirar = true;
+    var fimdejogo=false;
 	var TECLA = {
         W: 87,
         S: 83,
@@ -197,8 +198,13 @@ function start() {
 
     function colisao() {
         var colisao1 = ($("#jogador").collision($("#inimigo1")));
-        // jogador com o inimigo1
-            
+        var colisao2 = ($("#jogador").collision($("#inimigo2")));
+        var colisao3 = ($("#disparo").collision($("#inimigo1")));
+        var colisao4 = ($("#disparo").collision($("#inimigo2")));
+        var colisao5 = ($("#jogador").collision($("#amigo")));
+        var colisao6 = ($("#inimigo2").collision($("#amigo")));
+        
+        // jogador com o inimigo1    
         if (colisao1.length>0) {
             
             //explosão
@@ -211,13 +217,26 @@ function start() {
             $("#inimigo1").css("left",694);
             $("#inimigo1").css("top",posicaoY);
         }
+
+        // jogador com o inimigo2 
+        if (colisao2.length>0) {
+	
+            inimigo2X = parseInt($("#inimigo2").css("left"));
+            inimigo2Y = parseInt($("#inimigo2").css("top"));
+            explosao1(inimigo2X,inimigo2Y);
+                    
+            $("#inimigo2").remove();
+                
+            reposicionaInimigo2();  
+        }
+
+        
         
     } //Fim da função colisao()
 
-    //Explosão 1
     function explosao1(inimigo1X,inimigo1Y) {
         $("#fundoGame").append("<div id='explosao1'></div");
-        $("#explosao1").css("background-image", "url(imgs/explosao.png)");
+        $("#explosao1").css("background-image", "url(assets/imgs/explosao.png)");
         var div = $("#explosao1");
         div.css("top", inimigo1Y);
         div.css("left", inimigo1X);
@@ -229,11 +248,27 @@ function start() {
 			
 			div.remove();
 			window.clearInterval(tempoExplosao);
-			tempoExplosao=null;
+			tempoExplosao = null;
 			
 		}
 		
 	} // Fim da função explosao1()
 
+	function reposicionaInimigo2() {
+	
+        var tempoColisao4=window.setInterval(reposiciona4, 5000);
+            
+        function reposiciona4() {
+            window.clearInterval(tempoColisao4);
+            tempoColisao4 = null;
+                
+            if (fimdejogo == false) {
+                
+                $("#fundoGame").append("<div id=inimigo2></div");
+                
+            }
+                
+        }	
+    } // Fim da dunção reposicioInimigo2()	
 
-} // Fim da função start
+} // Fim da função start()
