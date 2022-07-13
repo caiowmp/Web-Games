@@ -1,8 +1,10 @@
 function start() {
 
-	$("#inicio").hide();
+    //oculta a div inicio
+	$("#inicio").hide(); 
 	
-	$("#fundoGame").append("<div id='jogador'></div>");
+    // cria na div fundo game as seguintes divs
+	$("#fundoGame").append("<div id='jogador' class='anima1'></div>");
 	$("#fundoGame").append("<div id='inimigo1'></div>");
 	$("#fundoGame").append("<div id='inimigo2'></div>");
 	$("#fundoGame").append("<div id='amigo'></div>");
