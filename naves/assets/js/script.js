@@ -30,6 +30,18 @@ function start() {
         A: 65,
         Q: 81
     } 
+
+    var somDisparo = document.getElementById("somDisparo");
+    var somExplosao = document.getElementById("somExplosao");
+    var musica = document.getElementById("musica");
+    var somGameover = document.getElementById("somGameover");
+    var somPerdido = document.getElementById("somPerdido");
+    var somResgate = document.getElementById("somResgate");
+
+    //Música em loop
+    musica.addEventListener("ended", function(){ musica.currentTime = 0; musica.play(); }, false);
+    musica.play();
+
     
     //Verifica se o usuário pressionou alguma tecla	
 	$(document).keydown(function(e){
@@ -172,6 +184,7 @@ function start() {
     function disparo() {
         if (podeAtirar == true) {
             
+            somDisparo.play();
             podeAtirar = false;
             
             topo = parseInt($("#jogador").css("top"))
@@ -273,6 +286,7 @@ function start() {
         // jogador com o amigo
 	    if (colisao5.length>0) {
 		
+            somResgate.play();
             salvos++;
             reposicionaAmigo();
             $("#amigo").remove();
@@ -293,6 +307,8 @@ function start() {
     } //Fim da função colisao()
 
     function explosao(inimigo1X,inimigo1Y) {
+        
+        somExplosao.play();
         $("#fundoGame").append("<div id='explosao'></div");
         $("#explosao").css("background-image", "url(assets/imgs/explosao.png)");
         var div = $("#explosao");
@@ -313,6 +329,8 @@ function start() {
 	} // Fim da função explosao()
 
     function explosaoAmigo(amigoX,amigoY) {
+
+        somPerdido.play();
         $("#fundoGame").append("<div id='explosaoAmigo' class='anima4'></div");
         $("#explosaoAmigo").css("top",amigoY);
         $("#explosaoAmigo").css("left",amigoX);
