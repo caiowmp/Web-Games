@@ -210,7 +210,7 @@ function start() {
             //explosão
             inimigo1X = parseInt($("#inimigo1").css("left"));
             inimigo1Y = parseInt($("#inimigo1").css("top"));
-            explosao1(inimigo1X,inimigo1Y);
+            explosao(inimigo1X,inimigo1Y);
         
             //reposiciona o inimigo
             posicaoY = parseInt(Math.random() * 334);
@@ -223,7 +223,7 @@ function start() {
 	
             inimigo2X = parseInt($("#inimigo2").css("left"));
             inimigo2Y = parseInt($("#inimigo2").css("top"));
-            explosao1(inimigo2X,inimigo2Y);
+            explosao(inimigo2X,inimigo2Y);
                     
             $("#inimigo2").remove();
                 
@@ -237,7 +237,7 @@ function start() {
             inimigo1Y = parseInt($("#inimigo1").css("top"));
                 
             //o disparo some após colisão
-            explosao1(inimigo1X,inimigo1Y);
+            explosao(inimigo1X,inimigo1Y);
             $("#disparo").css("left",950);
             
             posicaoY = parseInt(Math.random() * 334);
@@ -252,7 +252,7 @@ function start() {
             inimigo2Y = parseInt($("#inimigo2").css("top"));
             $("#inimigo2").remove();
         
-            explosao1(inimigo2X,inimigo2Y);
+            explosao(inimigo2X,inimigo2Y);
             $("#disparo").css("left",950);
             
             reposicionaInimigo2();
@@ -265,12 +265,23 @@ function start() {
             $("#amigo").remove();
         }
         
+        //Inimigo2 com o amigo
+        if (colisao6.length>0) {
+            
+            amigoX = parseInt($("#amigo").css("left"));
+            amigoY = parseInt($("#amigo").css("top"));
+            explosaoAmigo(amigoX,amigoY);
+            $("#amigo").remove();
+                    
+            reposicionaAmigo();   
+        }
+
     } //Fim da função colisao()
 
-    function explosao1(inimigo1X,inimigo1Y) {
-        $("#fundoGame").append("<div id='explosao1'></div");
-        $("#explosao1").css("background-image", "url(assets/imgs/explosao.png)");
-        var div = $("#explosao1");
+    function explosao(inimigo1X,inimigo1Y) {
+        $("#fundoGame").append("<div id='explosao'></div");
+        $("#explosao").css("background-image", "url(assets/imgs/explosao.png)");
+        var div = $("#explosao");
         div.css("top", inimigo1Y);
         div.css("left", inimigo1X);
         div.animate({width:200, opacity:0}, "slow");
@@ -285,7 +296,7 @@ function start() {
 			
 		}
 		
-	} // Fim da função explosao1()
+	} // Fim da função explosao()
 
 	function reposicionaInimigo2() {
 	
