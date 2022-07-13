@@ -256,7 +256,13 @@ function start() {
             $("#disparo").css("left",950);
             
             reposicionaInimigo2();
-            
+        }
+
+        // jogador com o amigo
+	    if (colisao5.length>0) {
+		
+            reposicionaAmigo();
+            $("#amigo").remove();
         }
         
     } //Fim da função colisao()
