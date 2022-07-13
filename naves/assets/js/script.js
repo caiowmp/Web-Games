@@ -298,6 +298,21 @@ function start() {
 		
 	} // Fim da função explosao()
 
+    function explosaoAmigo(amigoX,amigoY) {
+        $("#fundoGame").append("<div id='explosaoAmigo' class='anima4'></div");
+        $("#explosaoAmigo").css("top",amigoY);
+        $("#explosaoAmigo").css("left",amigoX);
+        
+        var tempoExplosaoAmigo = window.setInterval(resetaExplosaoAmigo, 1000);
+        
+        function resetaExplosaoAmigo() {
+            $("#explosaoAmigo").remove();
+            window.clearInterval(tempoExplosaoAmigo);
+            tempoExplosaoAmigo = null;       
+        }
+        
+    } // Fim da função explosaoAmigo()
+
 	function reposicionaInimigo2() {
 	
         var tempoColisao4=window.setInterval(reposiciona4, 5000);
@@ -323,9 +338,9 @@ function start() {
         
         function reposiciona6() {
             window.clearInterval(tempoAmigo);
-            tempoAmigo=null;
+            tempoAmigo  =null;
                 
-            if (fimdejogo==false) {
+            if (fimdejogo == false) {
                 
                 $("#fundoGame").append("<div id='amigo' class='anima3'></div>");
                 
