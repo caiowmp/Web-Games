@@ -15,7 +15,9 @@ function start() {
 	var TECLA = {
         W: 87,
         S: 83,
-        D: 68
+        D: 68,
+        A: 65,
+        backspace: 8
     }
     
     jogo.pressionou = [];
@@ -81,9 +83,37 @@ function start() {
                     
             }
         }
+
+        //caso A seja pressionado
+        if (jogo.pressionou[TECLA.A]) {
+            //pega a posição atual
+            var esquerda = parseInt($("#jogador").css("left"));
+            //joga pra esquerda
+            $("#jogador").css("left",esquerda-10);
+
+            //põe um limite para o helicóptero
+            if (esquerda<=0) {
+		
+                $("#jogador").css("left",esquerda=0);
+            }
+        }
             
         //caso D seja pressionado
-        if (jogo.pressionou[TECLA.D]) {    
+        if (jogo.pressionou[TECLA.D]) {           
+            //pega a posição atual
+            var esquerda = parseInt($("#jogador").css("left"));
+            //joga pra direita
+            $("#jogador").css("left",esquerda+10);	
+
+            //o helicóptero tem um limite até onde pode ir
+            if (esquerda>=300) {	
+                $("#jogador").css("left",esquerda=300);
+                    
+            }
+        }
+            
+        //caso barra de espaço seja pressionado
+        if (jogo.pressionou[TECLA.backspace]) {    
             //Chama função Disparo	
         }
         
