@@ -9,6 +9,8 @@ A cada helicóptero inimigo que você destruir com disparos você ganha 100 pont
 
 Caso você salve o seu amigo (direcionando seu helicóptero até ele) é você ganha mais um na pontuação "salvos". Caso contrário (seu amigo seja atropelado) é acrescido em um a pontuação "perdidos".
 
+O jogador começa com 3 energias e, a cada colisão que ele tiver com os inimigos, ele perde uma energia, até que, a quantidade de energia seja 0 e ele perca o jogo.
+
 ### Para rodar o projeto
 Para executar o projeto, basta apenas abrir o arquivo index.html em um navegador de preferência.
 
