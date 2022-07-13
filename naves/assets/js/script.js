@@ -12,24 +12,22 @@ function start() {
     //Principais variáveis do jogo
 	
 	var jogo = {};
-    var velocidade=5;
+    var velocidade = 5;
     var posicaoY = parseInt(Math.random() * 334);
+    var podeAtirar = true;
 	var TECLA = {
         W: 87,
         S: 83,
         D: 68,
         A: 65,
-        backspace: 8
-    }
-    
+        Q: 81
+    } 
     jogo.pressionou = [];
 
     //Verifica se o usuário pressionou alguma tecla	
-	
 	$(document).keydown(function(e){
     jogo.pressionou[e.which] = true;
-    });
-    
+    });  
     
     $(document).keyup(function(e){
        jogo.pressionou[e.which] = false;
@@ -118,8 +116,9 @@ function start() {
         }
             
         //caso barra de espaço seja pressionado
-        if (jogo.pressionou[TECLA.backspace]) {    
-            //Chama função Disparo	
+        if (jogo.pressionou[TECLA.Q]) {
+            console.log("olá");
+            disparo();	
         }
         
     } // fim da função movejogador()
@@ -156,11 +155,45 @@ function start() {
                     
             if (posicaoX>906) {
                 
-            $("#amigo").css("left",0);
+                $("#amigo").css("left",0);
                         
             }
     
     } // fim da função moveamigo()
     
+    function disparo() {
+        console.log("ulá");
+        if (podeAtirar == true) {
+            
+            podeAtirar = false;
+            
+            topo = parseInt($("#jogador").css("top"))
+            posicaoX= parseInt($("#jogador").css("left"))
+            //coordenadas de onde o tiro vai sair
+            tiroX = posicaoX + 190;
+            topoTiro = topo + 37;
+            //cria a div disparo
+            $("#fundoGame").append("<div id='disparo'></div");
+            $("#disparo").css("top",topoTiro);
+            $("#disparo").css("left",tiroX);
+            
+            var tempoDisparo = window.setInterval(executaDisparo, 30);
+        
+        } //Fecha podeAtirar
+     
+        function executaDisparo() {
+            posicaoX = parseInt($("#disparo").css("left"));
+            $("#disparo").css("left",posicaoX+15); 
+    
+            if (posicaoX>900) {
+                            
+                window.clearInterval(tempoDisparo);
+                tempoDisparo = null;
+                $("#disparo").remove();
+                podeAtirar = true;
+                        
+            }
+        } // Fecha executaDisparo()
+    } // Fecha disparo()
 
 } // Fim da função start
