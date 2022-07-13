@@ -97,19 +97,28 @@ body {
 @-webkit-keyframes play {
 	from { background-position:0px; }
 	  to { background-position: -512px; }
- }
+}
  
- @-moz-keyframes play {
+@-moz-keyframes play {
 	from { background-position:0px; }
 	  to { background-position: -512px; }
- }
+}
  
- @-ms-keyframes play {
+@-ms-keyframes play {
 	from { background-position:0px; }
 	  to { background-position: -512px; }
- }
+}
  
- @-o-keyframes play {
+@-o-keyframes play {
 	from { background-position:0px; }
 	  to { background-position: -512px; }
- }
+}
+
+.anima2 {
+    background-image:url(imgs/inimigo1.png);
+    animation: play .5s steps(2) infinite;
+    -webkit-animation: play .5s steps(2) infinite;
+    -moz-animation: play .5s steps(2) infinite;
+    -ms-animation: play .5s steps(2) infinite;
+    -o-animation: play .5s steps(2) infinite; 
+}
