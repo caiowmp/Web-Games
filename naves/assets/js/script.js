@@ -1,4 +1,4 @@
-function start() { // Inicio da função start()
+function start() {
 
 	$("#inicio").hide();
 	
